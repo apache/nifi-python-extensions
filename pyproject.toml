@@ -1,0 +1,74 @@
+# SPDX-License-Identifier: Apache-2.0
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nifi-python-extensions"
+dynamic = ["version"]
+description = "Apache NiFi Processors implemented in Python"
+requires-python = ">=3.11"
+keywords = ["apache", "nifi", "extensions", "processors"]
+readme = "README.md"
+authors = [
+    { name = "Apache NiFi Developers", email = "dev@nifi.apache.org" },
+]
+maintainers = [
+    { name = "Apache NiFi Developers", email = "dev@nifi.apache.org" },
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Hatch",
+]
+
+[project.urls]
+Homepage = "https://nifi.apache.org"
+Issues = "https://issues.apache.org/jira/projects/NIFI/issues"
+Source = "https://github.com/apache/nifi-python-extensions"
+
+[tool.hatch.version]
+path = "src/__about__.py"
+
+[[tool.hatch.envs.all.matrix]]
+python = ["3.11", "3.12"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/extensions"]
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    ".asf.yaml",
+    ".github",
+    ".ratignore",
+    "check-licenses.sh",
+]
+
+[tool.ruff]
+preview = true
+lint.pep8-naming.extend-ignore-names = [
+    "flowFile",
+    "getPropertyDescriptors",
+    "onScheduled",
+]
+lint.flake8-self.extend-ignore-names = [
+    "_standard_validators"
+]
+lint.extend-select = [
+    "CPY001"
+]
+lint.ignore = [
+    "G004", # Allow f-string for logging
+    "N999", # Allow Processor module names that do not follow pep8-naming
+    "PERF401", # Allow manual list comprehension
+    "RUF012", # Allow mutable class attributes without typing.ClassVar
+    "S105", # Avoid checking for hardcoded-password-string values
+]
+
+[tool.ruff.lint.flake8-copyright]
+notice-rgx = "# SPDX-License-Identifier: Apache-2.0\n"
