@@ -1,4 +1,3 @@
-
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -18,18 +17,24 @@ github:
   description: "Apache NiFi Python Extensions"
   homepage: https://nifi.apache.org/
   labels:
+    - apache
     - nifi
     - python
+    - hacktoberfest
   features:
     wiki: false
     issues: false
     projects: false
   enabled_merge_buttons:
     squash:  true
-    merge:   true
-    rebase:  true
+  autolink_jira:
+    - NIFI
+  protected_branches:
+    main:
+      required_signatures: true
+      required_linear_history: true
 notifications:
-    commits:      commits@nifi.apache.org
-    issues:       issues@nifi.apache.org
-    pullrequests: issues@nifi.apache.org
-    jira_options: link label worklog
+  commits:      commits@nifi.apache.org
+  issues:       issues@nifi.apache.org
+  pullrequests: issues@nifi.apache.org
+  jira_options: link worklog
