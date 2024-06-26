@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+__pycache__/*
+build/*
+dist/*
+downloads/*
+eggs/*
+lib/*
+lib64/*
+parts/*
+sdist/*
+var/*
+wheels/*
+share/python-wheels/*
+.idea/*
+.git/*
+.cache/*
