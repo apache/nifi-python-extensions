@@ -41,6 +41,14 @@ python = ["3.11", "3.12"]
 [tool.hatch.build.targets.wheel]
 packages = ["src/extensions"]
 
+[tool.hatch.build.targets.sdist]
+exclude = [
+    ".asf.yaml",
+    ".github",
+    ".ratignore",
+    "check-licenses.sh",
+]
+
 [tool.ruff]
 preview = true
 lint.pep8-naming.extend-ignore-names = [
