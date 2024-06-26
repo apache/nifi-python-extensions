@@ -1,6 +1,7 @@
 # Apache NiFi Python Extensions
 
 [![license](https://img.shields.io/github/license/apache/nifi-python-extensions)](https://github.com/apache/nifi-python-extensions/blob/main/LICENSE)
+[![build](https://github.com/apache/nifi-python-extensions/actions/workflows/build.yml/badge.svg)](https://github.com/apache/nifi-python-extensions/actions/workflows/build.yml)
 
 The [Apache NiFi](https://nifi.apache.org) Python Extensions repository contains Processors implemented in [Python](https://www.python.org/)
 for deployment in Apache NiFi 2.
