@@ -57,7 +57,7 @@ class PutChroma(FlowFileTransform):
     client = None
     embedding_function = None
 
-    def __init__(self):
+    def __init__(self, **kwargs):  # noqa: ARG002
         self.property_descriptors = list(ChromaUtils.PROPERTIES) + [
             prop for prop in EmbeddingUtils.PROPERTIES if prop != EmbeddingUtils.EMBEDDING_MODEL
         ]
