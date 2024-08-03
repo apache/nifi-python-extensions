@@ -29,6 +29,7 @@ class PutChroma(FlowFileTransform):
             "text",
             "LLM",
         ]
+        dependencies = ["numpy==1.26.4"]
 
     STORE_TEXT = PropertyDescriptor(
         name="Store Document Text",
