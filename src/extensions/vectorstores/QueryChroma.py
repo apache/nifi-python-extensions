@@ -30,7 +30,6 @@ class QueryChroma(FlowFileTransform):
             "text",
             "LLM",
         ]
-        dependencies = ["numpy==1.26.4"]
 
     QUERY = PropertyDescriptor(
         name="Query",
