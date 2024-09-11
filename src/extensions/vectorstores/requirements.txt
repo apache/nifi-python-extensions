@@ -6,7 +6,7 @@ tiktoken
 langchain==0.1.11
 
 # Chroma requirements
-chromadb==0.4.22
+chromadb==0.4.14
 numpy==1.26.4
 onnxruntime
 tokenizers
