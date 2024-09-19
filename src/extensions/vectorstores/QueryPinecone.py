@@ -9,7 +9,7 @@ from EmbeddingUtils import (
     HUGGING_FACE,
     HUGGING_FACE_MODEL,
     OPENAI,
-    OPENAI_API_MODEL,
+    OPENAI_MODEL,
     create_embedding_service,
 )
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
@@ -118,7 +118,7 @@ class QueryPinecone(FlowFileTransform):
         PINECONE_API_KEY,
         EMBEDDING_MODEL,
         OPENAI_API_KEY,
-        OPENAI_API_MODEL,
+        OPENAI_MODEL,
         HUGGING_FACE_API_KEY,
         HUGGING_FACE_MODEL,
         PINECONE_ENV,

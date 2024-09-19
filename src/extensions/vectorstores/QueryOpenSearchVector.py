@@ -2,7 +2,7 @@
 
 import json
 
-from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE_MODEL, OPENAI_API_MODEL, create_embedding_service
+from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE_MODEL, OPENAI_MODEL, create_embedding_service
 from langchain.vectorstores import OpenSearchVectorSearch
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
 from nifiapi.properties import ExpressionLanguageScope, PropertyDependency, PropertyDescriptor, StandardValidators
@@ -132,7 +132,7 @@ class QueryOpenSearchVector(FlowFileTransform):
     properties = [
         EMBEDDING_MODEL,
         OPENAI_API_KEY,
-        OPENAI_API_MODEL,
+        OPENAI_MODEL,
         HUGGING_FACE_API_KEY,
         HUGGING_FACE_MODEL,
         HTTP_HOST,

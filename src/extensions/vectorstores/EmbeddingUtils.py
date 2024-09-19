@@ -101,7 +101,7 @@ EMBEDDING_MODEL = PropertyDescriptor(
     default_value=OPENAI,
     required=True,
 )
-OPENAI_API_MODEL = PropertyDescriptor(
+OPENAI_MODEL = PropertyDescriptor(
     name="OpenAI Model",
     description="The name of the OpenAI model to use",
     default_value="text-embedding-ada-002",
@@ -177,7 +177,7 @@ def create_embedding_service(context):
 
     if embedding_service == OPENAI:
         openai_api_key = context.getProperty(OPENAI_API_KEY).getValue()
-        openai_model = context.getProperty(OPENAI_API_MODEL).getValue()
+        openai_model = context.getProperty(OPENAI_MODEL).getValue()
         return OpenAIEmbeddings(openai_api_key=openai_api_key, model=openai_model)
     huggingface_api_key = context.getProperty(HUGGING_FACE_API_KEY).getValue()
     huggingface_model = context.getProperty(HUGGING_FACE_MODEL).getValue()

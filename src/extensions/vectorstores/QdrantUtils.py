@@ -7,7 +7,7 @@ from EmbeddingUtils import (
     HUGGING_FACE,
     HUGGING_FACE_MODEL,
     OPENAI,
-    OPENAI_API_MODEL,
+    OPENAI_MODEL,
 )
 from nifiapi.properties import (
     ExpressionLanguageScope,
@@ -84,7 +84,7 @@ EMBEDDING_MODEL_PROPERTIES = [
     HUGGING_FACE_API_KEY,
     HUGGING_FACE_MODEL,
     OPENAI_API_KEY,
-    OPENAI_API_MODEL,
+    OPENAI_MODEL,
 ]
 
 

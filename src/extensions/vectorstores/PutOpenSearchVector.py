@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
-from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE_MODEL, OPENAI_API_MODEL, create_embedding_service
+from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE_MODEL, OPENAI_MODEL, create_embedding_service
 from langchain.vectorstores import OpenSearchVectorSearch
 from nifiapi.documentation import use_case
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
@@ -182,7 +182,7 @@ class PutOpenSearchVector(FlowFileTransform):
     properties = [
         EMBEDDING_MODEL,
         OPENAI_API_KEY,
-        OPENAI_API_MODEL,
+        OPENAI_MODEL,
         HUGGING_FACE_API_KEY,
         HUGGING_FACE_MODEL,
         HTTP_HOST,
