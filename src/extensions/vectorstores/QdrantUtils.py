@@ -6,6 +6,8 @@ from EmbeddingUtils import (
     EMBEDDING_MODEL,
     HUGGING_FACE,
     OPENAI,
+    HUGGING_FACE_MODEL,
+    OPENAI_API_MODEL,
 )
 from nifiapi.properties import (
     ExpressionLanguageScope,
@@ -68,28 +70,12 @@ HUGGING_FACE_API_KEY = PropertyDescriptor(
     sensitive=True,
     dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
 )
-HUGGING_FACE_MODEL = PropertyDescriptor(
-    name="HuggingFace Model",
-    description="The name of the HuggingFace model to use.",
-    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-    required=True,
-    default_value="sentence-transformers/all-MiniLM-L6-v2",
-    dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
-)
 OPENAI_API_KEY = PropertyDescriptor(
     name="OpenAI API Key",
     description="The API Key for OpenAI in order to create embeddings.",
     sensitive=True,
     required=True,
     validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-    dependencies=[PropertyDependency(EMBEDDING_MODEL, OPENAI)],
-)
-OPENAI_API_MODEL = PropertyDescriptor(
-    name="OpenAI Model",
-    description="The name of the OpenAI model to use.",
-    required=True,
-    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-    default_value="text-embedding-ada-002",
     dependencies=[PropertyDependency(EMBEDDING_MODEL, OPENAI)],
 )
 

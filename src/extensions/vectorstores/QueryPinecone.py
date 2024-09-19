@@ -4,7 +4,7 @@ import json
 
 import langchain.vectorstores
 import QueryUtils
-from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE, OPENAI, create_embedding_service
+from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE, OPENAI, create_embedding_service, HUGGING_FACE_MODEL, OPENAI_API_MODEL
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
 from nifiapi.properties import ExpressionLanguageScope, PropertyDependency, PropertyDescriptor, StandardValidators
 from pinecone import Pinecone
@@ -52,22 +52,6 @@ class QueryPinecone(FlowFileTransform):
         validators=[StandardValidators.NON_EMPTY_VALIDATOR],
         required=True,
         sensitive=True,
-        dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
-    )
-    OPENAI_MODEL = PropertyDescriptor(
-        name="OpenAI Model",
-        description="The API Key for OpenAI in order to create embeddings",
-        required=True,
-        validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-        default_value="text-embedding-ada-002",
-        dependencies=[PropertyDependency(EMBEDDING_MODEL, OPENAI)],
-    )
-    HUGGING_FACE_MODEL = PropertyDescriptor(
-        name="HuggingFace Model",
-        description="The name of the HuggingFace model to use",
-        validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-        required=True,
-        default_value="sentence-transformers/all-MiniLM-L6-v2",
         dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
     )
     PINECONE_ENV = PropertyDescriptor(
@@ -127,7 +111,7 @@ class QueryPinecone(FlowFileTransform):
         PINECONE_API_KEY,
         EMBEDDING_MODEL,
         OPENAI_API_KEY,
-        OPENAI_MODEL,
+        OPENAI_API_MODEL,
         HUGGING_FACE_API_KEY,
         HUGGING_FACE_MODEL,
         PINECONE_ENV,

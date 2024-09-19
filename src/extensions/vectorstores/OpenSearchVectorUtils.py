@@ -17,27 +17,11 @@ HUGGING_FACE_API_KEY = PropertyDescriptor(
     validators=[StandardValidators.NON_EMPTY_VALIDATOR],
     dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
 )
-HUGGING_FACE_MODEL = PropertyDescriptor(
-    name="HuggingFace Model",
-    description="The name of the HuggingFace model to use",
-    default_value="sentence-transformers/all-MiniLM-L6-v2",
-    required=True,
-    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-    dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
-)
 OPENAI_API_KEY = PropertyDescriptor(
     name="OpenAI API Key",
     description="The API Key for OpenAI in order to create embeddings",
     required=True,
     sensitive=True,
-    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
-    dependencies=[PropertyDependency(EMBEDDING_MODEL, OPENAI)],
-)
-OPENAI_API_MODEL = PropertyDescriptor(
-    name="OpenAI Model",
-    description="The API Key for OpenAI in order to create embeddings",
-    default_value="text-embedding-ada-002",
-    required=True,
     validators=[StandardValidators.NON_EMPTY_VALIDATOR],
     dependencies=[PropertyDependency(EMBEDDING_MODEL, OPENAI)],
 )
