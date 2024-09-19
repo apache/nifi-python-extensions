@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 
-from EmbeddingUtils import EMBEDDING_MODEL, create_embedding_service, OPENAI_API_MODEL, HUGGING_FACE_MODEL
+from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE_MODEL, OPENAI_API_MODEL, create_embedding_service
 from langchain.vectorstores import OpenSearchVectorSearch
 from nifiapi.documentation import use_case
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult

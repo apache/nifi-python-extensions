@@ -4,7 +4,14 @@ import json
 
 import langchain.vectorstores
 import QueryUtils
-from EmbeddingUtils import EMBEDDING_MODEL, HUGGING_FACE, OPENAI, create_embedding_service, HUGGING_FACE_MODEL, OPENAI_API_MODEL
+from EmbeddingUtils import (
+    EMBEDDING_MODEL,
+    HUGGING_FACE,
+    HUGGING_FACE_MODEL,
+    OPENAI,
+    OPENAI_API_MODEL,
+    create_embedding_service,
+)
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
 from nifiapi.properties import ExpressionLanguageScope, PropertyDependency, PropertyDescriptor, StandardValidators
 from pinecone import Pinecone

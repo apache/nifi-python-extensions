@@ -5,8 +5,8 @@ import uuid
 from EmbeddingUtils import (
     EMBEDDING_MODEL,
     HUGGING_FACE,
-    OPENAI,
     HUGGING_FACE_MODEL,
+    OPENAI,
     OPENAI_API_MODEL,
 )
 from nifiapi.properties import (
