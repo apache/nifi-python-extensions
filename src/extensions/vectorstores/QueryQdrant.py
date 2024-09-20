@@ -132,7 +132,7 @@ class QueryQdrant(FlowFileTransform):
         results = vector_store.similarity_search_with_score(
             query=query,
             k=num_results,
-            filter=None if filter is None else json.loads(filter_definition),
+            filter=None if filter_definition is None else json.loads(filter_definition),
         )
 
         documents = []
