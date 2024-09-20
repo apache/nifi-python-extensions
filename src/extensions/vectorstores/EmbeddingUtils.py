@@ -101,6 +101,23 @@ EMBEDDING_MODEL = PropertyDescriptor(
     default_value=OPENAI,
     required=True,
 )
+OPENAI_MODEL = PropertyDescriptor(
+    name="OpenAI Model",
+    description="The name of the OpenAI model to use",
+    default_value="text-embedding-ada-002",
+    required=True,
+    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
+    dependencies=[PropertyDependency(EMBEDDING_MODEL, OPENAI)],
+)
+HUGGING_FACE_MODEL = PropertyDescriptor(
+    name="HuggingFace Model",
+    description="The name of the HuggingFace model to use",
+    default_value="sentence-transformers/all-MiniLM-L6-v2",
+    required=True,
+    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
+    dependencies=[PropertyDependency(EMBEDDING_MODEL, HUGGING_FACE)],
+)
+
 PROPERTIES = [
     EMBEDDING_FUNCTION,
     HUGGING_FACE_MODEL_NAME,
@@ -160,6 +177,8 @@ def create_embedding_service(context):
 
     if embedding_service == OPENAI:
         openai_api_key = context.getProperty(OPENAI_API_KEY).getValue()
-        return OpenAIEmbeddings(openai_api_key=openai_api_key)
+        openai_model = context.getProperty(OPENAI_MODEL).getValue()
+        return OpenAIEmbeddings(openai_api_key=openai_api_key, model=openai_model)
     huggingface_api_key = context.getProperty(HUGGING_FACE_API_KEY).getValue()
-    return HuggingFaceInferenceAPIEmbeddings(api_key=huggingface_api_key)
+    huggingface_model = context.getProperty(HUGGING_FACE_MODEL).getValue()
+    return HuggingFaceInferenceAPIEmbeddings(api_key=huggingface_api_key, model_name=huggingface_model)
