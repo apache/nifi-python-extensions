@@ -3,7 +3,7 @@
 # Shared requirements
 openai==1.9.0
 tiktoken
-langchain==0.1.11
+langchain==0.2.10
 
 # Chroma requirements
 chromadb==0.4.22
@@ -16,7 +16,7 @@ requests
 # Pinecone requirements
 pinecone-client==3.0.1
 tiktoken
-langchain==0.1.11
+langchain==0.2.10
 
 # OpenSearch requirements
 opensearch-py==2.5.0
