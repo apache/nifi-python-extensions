@@ -6,6 +6,7 @@ from nifiapi.documentation import use_case
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
 from nifiapi.properties import ExpressionLanguageScope, PropertyDependency, PropertyDescriptor, StandardValidators
 from OpenSearchVectorUtils import (
+    CERTIFICATE_PATH,
     COSINESIMIL,
     HTTP_HOST,
     HUGGING_FACE_API_KEY,
@@ -188,6 +189,7 @@ class PutOpenSearchVector(FlowFileTransform):
         HTTP_HOST,
         USERNAME,
         PASSWORD,
+        CERTIFICATE_PATH,
         INDEX_NAME,
         DOC_ID_FIELD_NAME,
         VECTOR_FIELD,
