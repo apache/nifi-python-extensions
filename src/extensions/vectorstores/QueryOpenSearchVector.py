@@ -7,6 +7,7 @@ from langchain.vectorstores import OpenSearchVectorSearch
 from nifiapi.flowfiletransform import FlowFileTransform, FlowFileTransformResult
 from nifiapi.properties import ExpressionLanguageScope, PropertyDependency, PropertyDescriptor, StandardValidators
 from OpenSearchVectorUtils import (
+    CERTIFICATE_PATH,
     COSINESIMIL,
     HTTP_HOST,
     HUGGING_FACE_API_KEY,
@@ -138,6 +139,7 @@ class QueryOpenSearchVector(FlowFileTransform):
         HTTP_HOST,
         USERNAME,
         PASSWORD,
+        CERTIFICATE_PATH,
         INDEX_NAME,
         QUERY,
         VECTOR_FIELD,

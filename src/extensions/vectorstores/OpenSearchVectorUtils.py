@@ -45,6 +45,12 @@ PASSWORD = PropertyDescriptor(
     sensitive=True,
     validators=[StandardValidators.NON_EMPTY_VALIDATOR],
 )
+CERTIFICATE_PATH = PropertyDescriptor(
+    name="Certificate Path",
+    description="The path to the CA certificate to be used.",
+    required=False,
+    validators=[StandardValidators.NON_EMPTY_VALIDATOR],
+)
 INDEX_NAME = PropertyDescriptor(
     name="Index Name",
     description="The name of the OpenSearch index.",
@@ -74,11 +80,15 @@ TEXT_FIELD = PropertyDescriptor(
 def create_authentication_params(context):
     username = context.getProperty(USERNAME).getValue()
     password = context.getProperty(PASSWORD).getValue()
+    certificate_path = context.getProperty(CERTIFICATE_PATH).getValue()
 
-    params = {"verify_certs": "true"}
+    params = {}
 
     if username is not None and password is not None:
         params["http_auth"] = (username, password)
+
+    if certificate_path is not None:
+        params["ca_certs"] = certificate_path
 
     return params
 
